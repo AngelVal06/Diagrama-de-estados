@@ -3,13 +3,21 @@
 ## Código:
 
 @startuml
+
 state "Stand-by" as StandBy
+
 state "Validar Tarjeta" as ValidarTarjeta
+
 state "Solicitar PIN" as SolicitarPIN
+
 state "Validar PIN" as ValidarPIN
+
 state "Tarjeta Retenida" as TarjetaRetenida
+
 state "Opciones de Transacción" as OpcionesTransaccion
+
 state "Realizar Transacción" as RealizarTransaccion
+
 state "Finalizar Sesión" as FinalizarSesion
 
 [*] --> StandBy
