@@ -23,19 +23,27 @@ state "Finalizar Sesión" as FinalizarSesion
 [*] --> StandBy
 
 StandBy --> ValidarTarjeta : Tarjeta introducida
+
 ValidarTarjeta --> StandBy : Tarjeta no válida
+
 ValidarTarjeta --> SolicitarPIN : Tarjeta válida
 
 SolicitarPIN --> ValidarPIN : PIN introducido
+
 ValidarPIN --> SolicitarPIN : PIN incorrecto (intentos < 3)
+
 ValidarPIN --> TarjetaRetenida : PIN incorrecto (3 intentos)
+
 ValidarPIN --> OpcionesTransaccion : PIN correcto
 
 SolicitarPIN --> FinalizarSesion : Cancelar
+
 ValidarPIN --> FinalizarSesion : Cancelar
 
 OpcionesTransaccion --> RealizarTransaccion : Transacción seleccionada
+
 RealizarTransaccion --> OpcionesTransaccion : Transacción finalizada
+
 OpcionesTransaccion --> FinalizarSesion : Cancelar
 
 FinalizarSesion --> StandBy : Sesión finalizada
